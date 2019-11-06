@@ -46,8 +46,6 @@ GOOD_PAIRS = [
     ("x^{3 + 1}", x**_Add(3,1)),
     ("x^{\\left\\{3 + 1\\right\\}}", x**_Add(3,1)),
     ("-c", -c),
-    ("I", I),
-    ("i", I),
     ("a \\cdot b", a * b),
     ("a / b", a / b),
     ("a \\div b", a / b),
