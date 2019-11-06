@@ -324,7 +324,7 @@ def convert_atom(atom):
     if atom.LETTER():
         subscriptName = ''
         s = atom.LETTER().getText()
-        if s == "I":
+        if s in ["I", "i"]:
             return sympy.I
         if atom.subexpr():
             subscript = None
