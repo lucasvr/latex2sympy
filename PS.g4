@@ -104,6 +104,7 @@ DIFFERENTIAL: 'd' WS_CHAR*? ([a-zA-Z] | '\\' [a-zA-Z]+);
 
 FUNC_EXP: 'e';
 LETTER: [a-df-zA-Z];//exclude e for exp
+LONGNAME: [A-Z][A-Z]+;
 fragment DIGIT: [0-9];
 NUMBER:
     DIGIT+ (',' DIGIT DIGIT DIGIT)*
@@ -241,7 +242,7 @@ accent:
     accent_symbol
     L_BRACE base=expr R_BRACE;
 
-atom: (LETTER | SYMBOL | accent) subexpr? | NUMBER | DIFFERENTIAL | mathit | PLACEHOLDER;
+atom: (LETTER | LONGNAME | SYMBOL | accent) subexpr? | NUMBER | DIFFERENTIAL | mathit | PLACEHOLDER;
 
 mathit: CMD_MATHIT L_BRACE mathit_text R_BRACE;
 mathit_text: (LETTER | FUNC_EXP)+;

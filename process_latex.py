@@ -321,9 +321,9 @@ def convert_comp(comp):
         return convert_func(comp.func())
 
 def convert_atom(atom):
-    if atom.LETTER():
+    if atom.LETTER() or atom.LONGNAME():
         subscriptName = ''
-        s = atom.LETTER().getText()
+        s = atom.LETTER().getText() if atom.LETTER() else atom.LONGNAME().getText()
         if s == "I":
             return sympy.I
         if atom.subexpr():
@@ -333,7 +333,7 @@ def convert_atom(atom):
             else:                               # subscript is atom
                 subscript = convert_atom(atom.subexpr().atom())
             subscriptName = '_{' + StrPrinter().doprint(subscript) + '}'
-        return sympy.Symbol(atom.LETTER().getText() + subscriptName, real=True)
+        return sympy.Symbol(s + subscriptName, real=True)
     elif atom.SYMBOL():
         s = atom.SYMBOL().getText()[1:]
         if s == "infty":
