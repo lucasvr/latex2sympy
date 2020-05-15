@@ -104,7 +104,7 @@ DIFFERENTIAL: 'd' WS_CHAR*? ([a-zA-Z] | '\\' [a-zA-Z]+);
 
 FUNC_EXP: 'e';
 LETTER: [a-df-zA-Z];//exclude e for exp
-LONGNAME: ([A-Z][A-Z]+ | [a-z][a-z]+);
+LONGNAME: ([A-Z][A-Za-z]+ | [a-z][a-z]+);
 fragment DIGIT: [0-9];
 NUMBER:
     DIGIT+ (',' DIGIT DIGIT DIGIT)*
